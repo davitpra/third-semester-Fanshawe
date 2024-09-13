@@ -11,7 +11,7 @@ export class TodoList {
  }
 
  addItem(task: string) {
- this.todoItems.push(new TodoItem(task));
+    this.todoItems.push(new TodoItem(task));
  }
 
 }

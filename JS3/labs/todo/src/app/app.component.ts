@@ -14,6 +14,8 @@ import { TodoItem } from "./todoItem";
   new TodoItem("Go for run", true),
   new TodoItem("Get flowers"),
   new TodoItem("Collect tickets"),
+  new TodoItem("Do some work", true),
+  new TodoItem("write some TypeScript code"),
   ]);
 
   get username(): string {
@@ -24,4 +26,16 @@ import { TodoItem } from "./todoItem";
   return this.list.items
   .filter(item => !item.complete).length;
   }
+
+  get items(): readonly TodoItem[] {
+    return this.list.items.filter(item => this.showComplete || !item.complete);
+  }
+
+  addItem(newItem: string) {
+    if (newItem != "") {
+      this.list.addItem(newItem);
+    }
+  }
+
+  showComplete: boolean = false;
  }
